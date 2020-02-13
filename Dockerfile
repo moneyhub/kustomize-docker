@@ -1,6 +1,13 @@
 FROM alpine:3.8
 ENV KUSTOMIZE_VER 3.5.4
 ENV KUBECTL_VER 1.17.3
+# Versions: https://pypi.python.org/pypi/awscli#downloads
+ENV AWS_CLI_VERSION 1.17.5
+
+RUN apk --no-cache update && \
+    apk --no-cache add ca-certificates groff less && \
+    pip3 --no-cache-dir install awscli==${AWS_CLI_VERSION} && \
+    rm -rf /var/cache/apk/*
 
 RUN apk --no-cache add curl gettext
 
