@@ -5,7 +5,7 @@ ENV KUBECTL_VER 1.17.3
 ENV AWS_CLI_VERSION 1.17.5
 
 RUN apk --no-cache update && \
-    apk --no-cache add ca-certificates groff less && \
+    apk --no-cache add ca-certificates groff less py-pip && \
     pip3 --no-cache-dir install awscli==${AWS_CLI_VERSION} && \
     rm -rf /var/cache/apk/*
 
