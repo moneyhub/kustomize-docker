@@ -6,7 +6,7 @@ ENV AWS_CLI_VERSION 1.17.5
 
 RUN apk --no-cache update && \
     apk --no-cache add ca-certificates groff less py-pip && \
-    pip3 --no-cache-dir install awscli==${AWS_CLI_VERSION} && \
+    pip --no-cache-dir install awscli==${AWS_CLI_VERSION} && \
     rm -rf /var/cache/apk/*
 
 RUN apk --no-cache add curl gettext
