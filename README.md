@@ -91,7 +91,6 @@ docker run --rm -i \
     -e AWS_SECRET_ACCESS_KEY $AWS_SECRET_ACCESS_KEY \
     benjefferies/kustomize-docker \
     aws eks --region $region update-kubeconfig --name $eks-cluster-name
-aws eks --region eu-west-1 update-kubeconfig --name eks-dev
 ```
 
 If you're going to be doing any `kubectl cp`ing, don't forget to add the appropriate volumes.
