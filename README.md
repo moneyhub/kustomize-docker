@@ -11,7 +11,7 @@ Working directory is set to `/working/` if you need to mount files.
 
 # Usage
 ## On docker
-If you're making up your own workflow, the image is on [Docker Hub](https://hub.docker.com/r/benjefferies/kustomize-docker/).
+If you're making up your own workflow, the image is on [Docker Hub](https://hub.docker.com/r/benjjefferies/kustomize-docker/).
 
 ## End-to-end Usage
 Using the commands shown below, a complete deploy can be run by piping the output of each into the others:
@@ -24,15 +24,15 @@ docker run --rm -i \
     $ENV \
     -w /working/ \
     -v "$(pwd):/working/" \
-    benjefferies/kustomize-docker \
+    benjjefferies/kustomize-docker \
     kustomize build /working/overlays/$OVERLAY \
 | docker run --rm -i \
     $ENV \
-    benjefferies/kustomize-docker \
+    benjjefferies/kustomize-docker \
     envsubst \
 | docker run --rm -i \
     -v "$KUBECONFIG:/root/.kube/config" \
-    benjefferies/kustomize-docker \
+    benjjefferies/kustomize-docker \
     kubectl apply -f -
 ```
 
@@ -45,7 +45,7 @@ ENV=$(env | grep = | grep -v '^_' | sed 's/\([^=]*\)=.*/ -e \1 /' | tr -d '\n')
 
 docker run --rm -i \
     $ENV \
-    benjefferies/kustomize-docker \
+    benjjefferies/kustomize-docker \
     envsubst \
     < input_file.yaml \
     > output_file.yaml
@@ -61,7 +61,7 @@ docker run --rm -i \
     $ENV \
     -w /working/ \
     -v "$(pwd):/working/" \
-    benjefferies/kustomize-docker \
+    benjjefferies/kustomize-docker \
     kustomize build /working/overlays/$OVERLAY
 ```
 
@@ -77,7 +77,7 @@ If `$KUBECONFIG` is the path to your K8s configuration file (this is the default
 ```bash
 docker run --rm -i \
     -v "$KUBECONFIG:/root/.kube/config" \
-    benjefferies/kustomize-docker \
+    benjjefferies/kustomize-docker \
     kubectl apply -f - \
     < input_file.yaml
 ```
@@ -89,7 +89,7 @@ To get `.kube/config` in AWS EKS you can use the aws-cli.
 docker run --rm -i \
     -e AWS_ACCESS_KEY_ID $AWS_ACCESS_KEY_ID \
     -e AWS_SECRET_ACCESS_KEY $AWS_SECRET_ACCESS_KEY \
-    benjefferies/kustomize-docker \
+    benjjefferies/kustomize-docker \
     aws eks --region $region update-kubeconfig --name $eks-cluster-name
 ```
 
