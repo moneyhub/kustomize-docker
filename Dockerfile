@@ -14,6 +14,9 @@ RUN apk --no-cache add curl gettext
 RUN mkdir /working
 WORKDIR /working
 
+RUN curl -L https://github.com/mozilla/sops/releases/download/v3.5.0/sops-v3.5.0.linux -o /usr/local/bin/sops \
+    && chmod +x /usr/local/bin/kustomize
+
 RUN curl -L https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.5.4/kustomize_v3.5.4_linux_amd64.tar.gz | tar xvz -C /usr/local/bin \
     && chmod +x /usr/local/bin/kustomize
 
