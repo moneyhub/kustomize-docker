@@ -2,9 +2,10 @@
 Docker image for systems using Kustomize and kubectl.
 
 Included additions beyond base Apline:
-- Kustomize 3.5.4
+- Kustomize 3.6.1
 - Kubectl 1.17.3
-- AWS 1.17.5
+- AWS 1.18.72
+- sops 3.5.0
 - envsubst
 
 Working directory is set to `/working/` if you need to mount files.
