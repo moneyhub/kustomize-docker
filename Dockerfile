@@ -1,10 +1,10 @@
-FROM alpine:3.12
+FROM alpine:3.16
 
-ENV SOPS_VER 3.7.3
-ENV KUSTOMIZE_VER 4.5.5
-ENV KUBECTL_VER 1.20.15
+ENV SOPS_VER 3.8.1
+ENV KUSTOMIZE_VER 5.2.1
+ENV KUBECTL_VER 1.23.17
 # Versions: https://pypi.python.org/pypi/awscli#downloads
-ENV AWS_CLI_VERSION 1.19.112
+ENV AWS_CLI_VERSION 1.29.82
 
 RUN apk --no-cache add curl gettext bash ca-certificates groff less \
     py-pip git make curl gettext jq
