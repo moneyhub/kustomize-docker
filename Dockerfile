@@ -1,4 +1,4 @@
-FROM alpine:3.16
+FROM alpine:3.23.3
 
 ENV SOPS_VER 3.8.1
 ENV KUSTOMIZE_VER 5.2.1
